@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wedding Invitation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <style>
+      body {
+        padding-bottom: 60px; /* Space for fixed navigation bar */
+      }
+      .navbar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1030;
+        padding: 0; /* Reduce padding */
+      }
+      .navbar-nav {
+        flex-direction: row;
+        justify-content: space-between; /* Adjust spacing between items */
+        width: 100%;
+      }
+      .nav-item {
+        text-align: center;
+      }
+      .nav-link {
+        padding: 5px 0; /* Reduce padding */
+      }
+      .nav-link i {
+        display: block;
+      }
+      .nav-link.active {
+        background-color: #495057; /* Change background for active state */
+        color: #fff;
+      }
+      .content {
+        display: none; /* Hide all content sections by default */
+        text-align: center;
+        padding: 20px;
+      }
+      .active {
+        display: block; /* Display the active content section */
+      }
+      .text-extra-small {
+        font-size: 0.5rem; /* Adjust size as needed */
+      }
+      .container {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        height: 70vh; /* Full viewport height */
+      }
+      .center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center; /* Optional: to center text inside the content */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Content Sections -->
+    <div id="salam" class="content active">
+      <div class="container">
+        <div>
+      <h1>Salam</h1>
+      <p>Selamat datang di undangan pernikahan kami. Kami sangat bahagia bisa berbagi hari istimewa ini dengan Anda!</p>
+    </div>
+  </div>
+    </div>
+
+    <div id="mempelai" class="content">
+      <div class="container">
+        <div>
+          <h1>Mempelai</h1>
+          <p>Perkenalkan, kami adalah [Nama Mempelai Pria] dan [Nama Mempelai Wanita]. Kami menantikan kehadiran Anda di hari istimewa kami.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="waktu" class="content">
+      <div class="container">
+        <div>
+      <h1>Waktu</h1>
+      <p>Pernikahan akan dilaksanakan pada tanggal XX/XX/XXXX, pukul 09:00 AM.</p>
+    </div>
+  </div>
+</div>
+
+    <div id="lokasi" class="content">
+      <div class="container">
+        <div>
+      <h1>Lokasi</h1>
+      <p>Lokasi acara pernikahan akan berlangsung di [Alamat lengkap lokasi].</p>
+    </div>
+  </div>
+</div>
+
+    <div id="galeri" class="content">
+      <div class="container">
+        <div>
+      <h1>Galeri</h1>
+      <p>Berikut beberapa momen kebersamaan kami: [Tambahkan foto di sini]</p>
+    </div>
+  </div>
+</div>
+
+    <div id="kontak" class="content">
+      <div class="container">
+        <div>
+      <h1>Kontak</h1>
+      <p>Untuk informasi lebih lanjut, hubungi kami di [Nomor Kontak] atau email [Alamat Email].</p>
+    </div>
+  </div>
+</div>
+
+    <div id="terimakasih" class="content">
+      <h1>TerimaKasih</h1>
+      <p>Terima kasih atas doa dan dukungan Anda. Kami sangat menantikan kehadiran Anda di hari istimewa kami.</p>
+    </div>
+
+    <!-- Fixed Bottom Navbar with Icons -->
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid d-flex justify-content-between px-3">
+        <button class="btn btn-dark" onclick="showSection('salam')">
+          <i class="fas fa-handshake"></i><br />
+          <div class="text-extra-small">Salam</div>
+        </button>
+        <button class="btn btn-dark" onclick="showSection('mempelai')">
+          <i class="fas fa-user-friends"></i><br />
+          <div class="text-extra-small">Mempelai</div>
+        </button>
+        <button class="btn btn-dark" onclick="showSection('waktu')">
+          <i class="fas fa-clock"></i><br />
+          <div class="text-extra-small">Waktu</div>
+        </button>
+        <button class="btn btn-dark" onclick="showSection('lokasi')">
+          <i class="fas fa-map-marker-alt"></i><br />
+          <div class="text-extra-small">Lokasi</div>
+        </button>
+        <button class="btn btn-dark" onclick="showSection('galeri')">
+          <i class="fas fa-images"></i><br />
+          <div class="text-extra-small">Galeri</div>
+        </button>
+        <button class="btn btn-dark" onclick="showSection('kontak')">
+          <i class="fas fa-phone"></i><br />
+          <div class="text-extra-small">Kontak</div>
+        </button>
+      </div>
+    </nav>
+
+    <script>
+      function showSection(sectionId) {
+        // Hide all sections
+        document.querySelectorAll(".content").forEach(function (content) {
+          content.classList.remove("active");
+        });
+
+        // Show the selected section
+        document.getElementById(sectionId).classList.add("active");
+      }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
