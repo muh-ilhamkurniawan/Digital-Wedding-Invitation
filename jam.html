@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Mundur</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .countdown-box {
+            background-color: #f8f9fa;
+            border: 2px solid #000;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .countdown-box p {
+            margin: 0;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .label {
+            margin-top: 10px;
+            font-size: 1em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-5">Hitung Mundur ke Waktu yang Ditentukan</h1>
+        <div class="row justify-content-center">
+            <div class="col-6 col-md-2 mb-4">
+                <div class="countdown-box">
+                    <p id="days">0</p>
+                    <div class="label">Hari</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-2 mb-4">
+                <div class="countdown-box">
+                    <p id="hours">0</p>
+                    <div class="label">Jam</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-2 mb-4">
+                <div class="countdown-box">
+                    <p id="minutes">0</p>
+                    <div class="label">Menit</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-2 mb-4">
+                <div class="countdown-box">
+                    <p id="seconds">0</p>
+                    <div class="label">Detik</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Tetapkan tanggal tujuan
+        const targetDate = new Date("Dec 31, 2024 23:59:59").getTime();
+
+        // Fungsi untuk memperbarui hitung mundur setiap detik
+        const countdownTimer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            // Hitung waktu untuk hari, jam, menit, dan detik
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Tampilkan hasil di elemen masing-masing
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            // Jika hitungan mundur selesai
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById("days").innerHTML = "0";
+                document.getElementById("hours").innerHTML = "0";
+                document.getElementById("minutes").innerHTML = "0";
+                document.getElementById("seconds").innerHTML = "0";
+                document.querySelectorAll(".label").forEach(function(label) {
+                    label.innerHTML = "Waktu Habis";
+                });
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
